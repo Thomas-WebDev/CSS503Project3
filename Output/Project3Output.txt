@@ -1,0 +1,95 @@
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-124-generic x86_64)
+Last login: Tue May 22 22:30:12 2018 from 10.102.77.64
+kehoek2@uw1-320-15:~$ cd CSS503/Proj3
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./compile.sh
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./driver hamlet.txt > output_hamlet.txt
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./driver othello.txt > output_othello.txt
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval r u a hamlet.txt
+Reads : Unix   I/O [Read   once     ] = 9221
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval r u b hamlet.txt
+Reads : Unix   I/O [Block  transfers] = 8214
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval r u c hamlet.txt
+Reads : Unix   I/O [Char   transfers] = 125306
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval r u r hamlet.txt
+Reads : Unix   I/O [Random transfers] = 10607
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval r f a hamlet.txt
+^Z
+[1]+  Stopped                 ./eval r f a hamlet.txt
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval r f b hamlet.txt
+^Z
+[2]+  Stopped                 ./eval r f b hamlet.txt
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval r f c hamlet.txt
+^Z
+[3]+  Stopped                 ./eval r f c hamlet.txt
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval r f r hamlet.txt
+Reads : C File I/O [Random transfers] = 2
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval w u a test.txt
+Writes: Unix   I/O [Read   once     ] = 63
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval w u b test.txt
+Writes: Unix   I/O [Block  transfers] = 124
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval w u c test.txt
+Writes: Unix   I/O [Char   transfers] = 169826
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval w u r test.txt
+Writes: Unix   I/O [Random transfers] = 3563
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval w f a test.txt
+Writes: C File I/O [Read   once     ] = 217*** Error in `./eval': free(): invalid next size (fast): 0x0000000002538c60 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x777e5)[0x7ff24b86a7e5]
+/lib/x86_64-linux-gnu/libc.so.6(+0x8037a)[0x7ff24b87337a]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x4c)[0x7ff24b87753c]
+./eval[0x400ef5]
+./eval[0x401913]
+./eval[0x40223a]
+./eval[0x402379]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0)[0x7ff24b813830]
+./eval[0x400af9]
+======= Memory map: ========
+00400000-00403000 r-xp 00000000 00:66 37844520                           /home/NETID/kehoek2/CSS503/Proj3/eval
+00602000-00603000 r--p 00002000 00:66 37844520                           /home/NETID/kehoek2/CSS503/Proj3/eval
+00603000-00604000 rw-p 00003000 00:66 37844520                           /home/NETID/kehoek2/CSS503/Proj3/eval
+02525000-02557000 rw-p 00000000 00:00 0                                  [heap]
+7ff244000000-7ff244021000 rw-p 00000000 00:00 0
+7ff244021000-7ff248000000 ---p 00000000 00:00 0
+7ff24b4ea000-7ff24b5f2000 r-xp 00000000 08:01 24908219                   /lib/x86_64-linux-gnu/libm-2.23.so
+7ff24b5f2000-7ff24b7f1000 ---p 00108000 08:01 24908219                   /lib/x86_64-linux-gnu/libm-2.23.so
+7ff24b7f1000-7ff24b7f2000 r--p 00107000 08:01 24908219                   /lib/x86_64-linux-gnu/libm-2.23.so
+7ff24b7f2000-7ff24b7f3000 rw-p 00108000 08:01 24908219                   /lib/x86_64-linux-gnu/libm-2.23.so
+7ff24b7f3000-7ff24b9b3000 r-xp 00000000 08:01 24911107                   /lib/x86_64-linux-gnu/libc-2.23.so
+7ff24b9b3000-7ff24bbb3000 ---p 001c0000 08:01 24911107                   /lib/x86_64-linux-gnu/libc-2.23.so
+7ff24bbb3000-7ff24bbb7000 r--p 001c0000 08:01 24911107                   /lib/x86_64-linux-gnu/libc-2.23.so
+7ff24bbb7000-7ff24bbb9000 rw-p 001c4000 08:01 24911107                   /lib/x86_64-linux-gnu/libc-2.23.so
+7ff24bbb9000-7ff24bbbd000 rw-p 00000000 00:00 0
+7ff24bbbd000-7ff24bbd3000 r-xp 00000000 08:01 24908167                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7ff24bbd3000-7ff24bdd2000 ---p 00016000 08:01 24908167                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7ff24bdd2000-7ff24bdd3000 rw-p 00015000 08:01 24908167                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7ff24bdd3000-7ff24bf45000 r-xp 00000000 08:01 15466525                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7ff24bf45000-7ff24c145000 ---p 00172000 08:01 15466525                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7ff24c145000-7ff24c14f000 r--p 00172000 08:01 15466525                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7ff24c14f000-7ff24c151000 rw-p 0017c000 08:01 15466525                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7ff24c151000-7ff24c155000 rw-p 00000000 00:00 0
+7ff24c155000-7ff24c17b000 r-xp 00000000 08:01 24911105                   /lib/x86_64-linux-gnu/ld-2.23.so
+7ff24c338000-7ff24c35f000 rw-p 00000000 00:00 0
+7ff24c379000-7ff24c37a000 rw-p 00000000 00:00 0
+7ff24c37a000-7ff24c37b000 r--p 00025000 08:01 24911105                   /lib/x86_64-linux-gnu/ld-2.23.so
+7ff24c37b000-7ff24c37c000 rw-p 00026000 08:01 24911105                   /lib/x86_64-linux-gnu/ld-2.23.so
+7ff24c37c000-7ff24c37d000 rw-p 00000000 00:00 0
+7fff6d204000-7fff6d225000 rw-p 00000000 00:00 0                          [stack]
+7fff6d2c6000-7fff6d2c9000 r--p 00000000 00:00 0                          [vvar]
+7fff6d2c9000-7fff6d2cb000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+Aborted (core dumped)
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval w f b test.txt
+Writes: C File I/O [Block  transfers] = 200
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval w f c test.txt
+Writes: C File I/O [Char   transfers] = 995
+kehoek2@uw1-320-15:~/CSS503/Proj3$ ./eval w f r test.txt
+Writes: C File I/O [Random transfers] = 228
+kehoek2@uw1-320-15:~/CSS503/Proj3$
+--------------------------------------------------------------------------------
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+
+Network error: Software caused connection abort
